@@ -1,5 +1,5 @@
 // Declare and initialize the variables for exercise 1 here:
-let engineIndicatorLight = "green";
+let engineIndicatorLight = "red blinking";
 let spaceSuitsOn = true;
 let shuttleCabinReady = true;
 let crewStatus = spaceSuitsOn && shuttleCabinReady;
@@ -12,15 +12,17 @@ let commandOverride = false;
 
 if (engineIndicatorLight === "green") {
    console.log("engines have started");
-} else if (engineIndicatorLight === "green blinking") {
+} else if (engineIndicatorLight === "green blinking") 
+{
    console.log("engines are preparing to start");
 } else {
    console.log("Engines are off");
 }
 if (crewStatus === true) {
    console.log("Crew Ready");
-} else if ("Crew Not Ready");
-
+} else { 
+   console.log("Crew Not Ready");
+}
 if (computerStatusCode === 200) {
    console.log("Please stand by. Computer is rebooting.");
 } else if (computerStatusCode === 400) {
