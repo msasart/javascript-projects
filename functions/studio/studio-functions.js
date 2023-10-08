@@ -1,14 +1,30 @@
+let sample = 'apple';
+let sample2 = 'LC01';
+let sample3 = "Capitalized Letters";
+let sample4 = "I love the smell of code in the morning."
 //We want to COMPLETELY reverse an array by flipping the order of the entries AND flipping the order of characters in each element.
 
 // Part One: Reverse Characters
 
 // 1. Define the function as reverseCharacters. Give it one parameter, which will be the string to reverse.
+
+
 // 2. Within the function, split the string into an array, then reverse the array.
 // 3. Use join to create the reversed string and return that string from the function.
 // 4. Below the function, define and initialize a variable to hold a string.
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
-
+function reverseCharacters(character){   
+    if (typeof character === 'number'){
+    return Number(String(character).split('').reverse('').join(''));
+    }else{
+        return (character.split('').reverse('').join(''));
+}
+}
+console.log(reverseCharacters(sample));
+console.log(reverseCharacters(sample2));
+console.log(reverseCharacters(sample3));
+console.log(reverseCharacters(sample4));
 // Part Two: Reverse Digits
 
 // 1. Add an if statement to reverseCharacters to check the typeof the parameter.
@@ -30,13 +46,34 @@ let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
 let arrayTest2 = [123, 8897, 42, 1168, 8675309];
 let arrayTest3 = ['hello', 'world', 123, 'orange'];
 
+function reverseArray(array){
+    let newArray = [];
+    for (let i = 0; i < array.length; i++){
+        newArray.push(reverseCharacters(array[i]));
+    }
+    return newArray.reverse();
+}
+console.log(reverseArray(arrayTest1));
+console.log(reverseArray(arrayTest2));
+console.log(reverseArray(arrayTest3));
+
+
 // Bonus Missions
 
 // 1. Have a clear, descriptive name like funPhrase.
 // 2. Retrieve only the last character from strings with lengths of 3 or less.
 // 3. Retrieve only the first 3 characters from strings with lengths larger than 3.
 // 4. Use a template literal to return the phrase We put the '___' in '___'. Fill the first blank with the modified string, and fill the second blank with the original string.
-
+function funPhrase(retrieve){
+    let phrase;
+    if (retrieve.length <= 3){
+        phrase = retrieve[retrieve.length - 1];
+    } else {
+       phrase = retrieve.slice(0,3);
+    }
+    return `We put the ${phrase} in ${retrieve}`;
+}
+console.log(funPhrase("hi"))
 // Test Function
 
 // 1. Outside of the function, define the variable str and initialize it with a string (e.g. 'Functions rock!').
@@ -49,3 +86,9 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 3. Call your area function by passing in two arguments - the length and width.
 // 4. If only one argument is passed to the function, then the shape is a square. Modify your code to deal with this case.
 // 5. Use a template literal to print, “The area is ____ cm^2.”
+
+
+function rectangleArea(length, width = length){
+    return length * width;
+}
+console.log(`The area is ${rectangleArea(2,4)} cm^2`)
