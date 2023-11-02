@@ -17,44 +17,50 @@ let weatherStatus = "clear";
 let preparedForLiftOff = true; 
 
 // add logic below to verify total number of astronauts for shuttle launch does not exceed 7
-if (astronautCount <= 7){
-} else{
-        console.log("Not cleared for take off! Astronaut Count exceeds limits!");
-}
+let verifedAstroCount = false;
+    if (astronautCount <= 7) {
+        verifedAstroCount = true;
+    }
 // add logic below to verify all astronauts are ready
-if (astronautStatus === "ready"){
-} else {
-    console.log("Not cleared for take off! Astronaut status is not ready.");
-}       
+  let astroStatus = false;
+    if (astronautStatus === "ready") {
+        astroStatus = true;
+    }
 // add logic below to verify the total mass does not exceed the maximum limit of 850000
-if (totalMassKg <= maximumMassLimit){
-}
-else if(totalMassKg > maximumMassLimit){
-    console.log("Not cleared for take off! Total Mass exceeds limits!");
-}
+let totalMassLimit = false; 
+    if (totalMassKg < maximumMassLimit) {
+        totalMassLimit = true;
+    }
 // add logic below to verify the fuel temperature is within the appropriate range of -150 and -300
-if (fuelTempCelsius < minimumFuelTemp || fuelTempCelsius > maximumFuelTemp){
-    console.log("Not cleared for take off! Temperature is out of range!");
-}
+let fuelTemp = false;
+    if(fuelTempCelsius  >= -300 && fuelTempCelsius <= -150) {
+        fuelTemp = true;
+    }
 // add logic below to verify the fuel level is at 100%
-if (fuelLevel === "100%"){
-}
-    else {
-            console.log("Not clear for take off! Tank must be full!")
-}    
+let fuelLevelStatus = false;
+    if (fuelLevel === "100%") {
+        fuelLevelStatus =  true;
+    }
 // add logic below to verify the weather status is clear
-if (weatherStatus === "clear"){
-}
-else{
-    console.log ("Not cleared for take off! Weather is not clear!")
-}
+let clearWeather = false;
+    if (weatherStatus === "clear") {
+        clearWeather = true;  
+    }
 // Verify shuttle launch can proceed based on above conditions
-console.log("Date: " + date);
-console.log("Time: " + time);
-console.log("Astronaut Count: " + astronautCount);
-console.log("Crew Mass: " + crewMassKg);
-console.log("Fuel Mass: " + fuelMassKg);
-console.log("Shuttle Mass: " + shuttleMassKg);
-console.log("Total Mass: " + totalMassKg);
-console.log("Fuel Temperature: " + fuelTempCelsius + " C");
-console.log("Weather Status: " + weatherStatus);
+
+if (verifedAstroCount && astroStatus && totalMassLimit && fuelTemp && fuelLevelStatus && clearWeather) {
+    console.log("All systems are a go! Initiating space shuttle launch sequence.");
+    console.log("------------------------------------------------------------------");
+    console.log("Time: " + time);
+    console.log("Astronaut Count: " + astronautCount);
+    console.log("Crew Mass: " + crewMassKg + " kg");
+    console.log("Fuel Mass: " + fuelMassKg + " kg");
+    console.log("Shuttle Mass: " + shuttleMassKg + " kg");
+    console.log("Total Mass: " + totalMassKg + " kg");
+    console.log("Fuel Temperature: " + fuelTemp);
+    console.log("Weather Status: " + weatherStatus);
+    console.log("------------------------------------------------------------------");
+    console.log("Have a safe trip astronauts!");
+} else {
+  console.log("Not ready for shuttle launch!")
+}
