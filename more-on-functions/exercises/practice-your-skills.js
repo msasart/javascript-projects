@@ -1,4 +1,13 @@
 //Create an anonymous function and set it equal to a variable.
+let practice = function(a) {
+if (typeof a === "number"){
+return a * 3;
+} else {
+if (typeof a === "string")
+return "ARRR!";
+}
+}
+console.log(practice("hello"));
 
 /* Your function should:
 a) If passed a number, return the tripled value.
@@ -12,4 +21,7 @@ b) Replace any strings with “ARRR!”
 c) Print the new array to confirm your work.
 */
 
+
 let arr = ['Elocution', 21, 'Clean teeth', 100];
+let newArray = arr.map(practice);
+console.log(newArray);
